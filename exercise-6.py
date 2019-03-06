@@ -22,25 +22,33 @@
 
 
 
-month = input("Enter the month of the season (Jan - Dec):").lower()
+month = input("Enter the month of the season (Jan - Dec):")
 day = int(input("Enter the day of the month:"))
+
 if month in ("Dec, Jan, Feb, Mar"):
     season = "Winter"
-elif month in ("Mar, Apr, May, Jun"):
+elif month in ("Apr, May"):
     season = "Spring"
-elif month in ("Jun, Jul, Aug, Sept"):
+elif month in ("Jul, Aug"):
     season = "Summer"
-elif month in ("Sep, Oct, Nov, Dec"): 
+elif month in ("Oct, Nov"): 
     season = "Fall"
 
 if (month == "Dec") and  (day >= 21):
     season = "Winter"
+elif (month == "Mar") and  (day <= 20):
+    season = "Winter"
+if (month == "Dec") and  (day < 20):
+    season = "Fall"
+if (month == "Sep") and  (day >= 22):
+    season = "Fall"
 elif (month == "Mar") and  (day > 20):
     season = "Spring"
-elif (month == "Jun") and  (day >= 21):
+elif (month == "Jun") and  (day < 20):
+    season = "Spring"
+elif (month == "Jun") and  (day >= 20):
     season = "Summer"
-else: 
-    (month == "Sep") and (day >= 22)
-    season = "Fall"
+elif (month == "Sep") and (day > 22):
+    season = "Summer"
 
 print(f"{month} {day} is in {season}.")
